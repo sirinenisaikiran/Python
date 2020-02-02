@@ -1,0 +1,5 @@
+Command to clone repository:
+
+git clone https://github.com/sirinenisaikiran/Python.git
+
+
