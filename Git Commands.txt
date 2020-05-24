@@ -1,5 +1,14 @@
-Command to clone repository:
+#*** Please tell me who you are.
+#Run
 
-git clone https://github.com/sirinenisaikiran/Python.git
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+# Clone command
+git clone <repo>
+
+# Commit
+
+git commit -m "Add existing file"
 
 
