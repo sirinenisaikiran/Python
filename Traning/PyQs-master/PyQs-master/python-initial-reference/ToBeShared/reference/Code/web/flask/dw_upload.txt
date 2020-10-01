@@ -1,0 +1,88 @@
+##Download
+import urllib3
+http = urllib3.PoolManager()
+
+url = "http://192.168.1.5:8000/Amazon%20Web%20Services%20in%20Action%2C%202nd%20Edition.pdf"
+r = http.request('GET', url, preload_content=False)
+filename = "aws.pdf"
+chunk_size = 8192
+with open(filename, 'wb') as out:
+    while True:
+        data = r.read(chunk_size)
+        if not data:
+            break
+        out.write(data)
+
+r.release_conn()
+
+##Upload 
+import urllib3
+import json 
+
+filename = 'aws.pdf'
+http = urllib3.PoolManager()
+with open(filename, 'rb') as fp:
+    binary_data = fp.read()
+
+r = http.request('POST','http://192.168.1.5:5001/upload' , fields={
+            'file': (filename, binary_data, 'application/pdf'),
+    })
+json.loads(r.data.decode('utf-8'))
+
+##With Requests 
+import requests
+import shutil
+
+url = "http://192.168.1.5:8000/Amazon%20Web%20Services%20in%20Action%2C%202nd%20Edition.pdf"
+filename = "aws.pdf"
+
+with requests.get(url, stream=True) as r:
+    with open(filename, 'wb') as f:
+        shutil.copyfileobj(r.raw, f)
+
+#Upload 
+import requests
+
+filename = 'aws.pdf'
+files = {'file': open(filename,'rb')}
+#files = {'file': (filename, open(filename,'rb'), 'application/pdf')}
+r = requests.post('http://192.168.1.5:5001/upload', files=files, data=values)
+json.loads(r.text)
+
+
+##More example - Big file streaming 
+with open('massive-body', 'rb') as f:
+    requests.post('http://some.url/upload', data=f)
+
+#Server Side
+
+@app.route("/upload", methods=['POST'])
+def upload_file():
+    from werkzeug.datastructures import FileStorage
+    FileStorage(request.stream).save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    return 'OK', 200
+
+#OR 
+@app.route("/upload", methods=['POST'])
+def upload_file():
+    def custom_stream_factory(total_content_length, filename, content_type, content_length=None):
+        import tempfile
+        tmpfile = tempfile.NamedTemporaryFile('wb+', prefix='flaskapp', suffix='.nc')
+        app.logger.info("start receiving file ... filename => " + str(tmpfile.name))
+        return tmpfile
+
+    import werkzeug, flask
+    stream, form, files = werkzeug.formparser.parse_form_data(flask.request.environ, stream_factory=custom_stream_factory)
+    for fil in files.values():
+        app.logger.info(" ".join(["saved form name", fil.name, "submitted as", fil.filename, "to temporary file", fil.stream.name]))
+        # Do whatever with stored file at `fil.stream.name`
+    return 'OK', 200
+    
+#Server Side download file 
+#as_attachment: bool, attachment_filename:str, mimetype: str
+from flask import send_from_directory
+
+@app.route('/download/<filename>')
+def download(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)    
+

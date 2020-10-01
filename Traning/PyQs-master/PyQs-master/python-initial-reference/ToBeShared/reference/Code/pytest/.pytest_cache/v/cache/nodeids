@@ -1,0 +1,7 @@
+[
+  "test_myint.py::TestMyInt::()::test_add",
+  "test_myint.py::test_sub",
+  "test_myint.py::testMany[Testing add2]",
+  "test_myint.py::testMany[Testing sub2]",
+  "test_myint.py::test_monkey"
+]

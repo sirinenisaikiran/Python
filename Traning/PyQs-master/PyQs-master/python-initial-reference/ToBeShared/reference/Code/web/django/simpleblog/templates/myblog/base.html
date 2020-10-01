@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Django</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+  <script src="{% static "js/jquery.min.js" %}"></script>
+  <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <body>
+
+        <div class="jumbotron jumbotron-fluid  text-center">
+          <h1>Django  site</h1>
+          <p>OK, this is my first project </p>
+        </div>
+
+
+        <div class="container">
+        {% block container %}
+        {% endblock container%}
+        </div>
+
+    </body>
+</html>

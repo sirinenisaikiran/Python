@@ -1,0 +1,16 @@
+<h1> List of environ variables </h1>
+
+<table border="1">
+  <tr>
+    <th>Variable</th>
+    <th >Value</th>
+  </tr>  
+ {% for k,v in objects.items %}
+    <tr >
+        <td >{{ k }}</td>
+        <td> {{ v }}</td>
+        
+    </tr>
+{% endfor %}
+
+</table>

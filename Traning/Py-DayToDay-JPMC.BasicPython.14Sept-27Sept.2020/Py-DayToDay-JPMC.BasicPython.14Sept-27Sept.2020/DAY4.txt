@@ -1,0 +1,513 @@
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64
+ bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> lst = [1,2,3]
+>>> sum(lst)
+6
+>>> import mex
+>>> mex.mean(lst)
+2.0
+>>> m = mex.mean(lst)
+>>> #math.sqrt((1-m)**2+(2-m)**2+(3-m)**2)/3)
+>>> quit()
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64
+ bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> lst = [1,2,3]
+>>> import mex
+>>> mex.sd(lst)
+0.816496580927726
+>>> quit()
+
+D:\handson>python mex_test.py
+100
+Mean= 2.0 SD= 0.816496580927726
+
+D:\handson>type mex.py
+#mex.py is module file
+
+def square(x):
+    """ first function
+    returns square of number"""
+    z = x*x
+    return z
+
+#import mex
+#lst = [1,2,3]
+#print(mex.mean(lst)) #2
+def mean(lst):
+    """Sum of lst/length of lst"""
+    return sum(lst)/len(lst)
+
+import math
+def sd(lst):
+    """sqrt of( SUM of square of
+    ( each elemnt - mean)  / length of lst  )"""
+    m = mean(lst)
+    output = []
+    for e in lst:
+        output.append( square(e-m))
+    return math.sqrt(sum(output)/len(output))
+
+
+
+
+
+D:\handson>type mex_test.py
+import mex
+
+result = mex.square(10)
+print(result)
+lst = [1,2,3]
+print("Mean=", mex.mean(lst), "SD=", mex.sd(lst) )
+
+D:\handson>python mex_test.py
+100
+Mean= 2.0 SD= 0.816496580927726
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64
+ bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import random
+>>> list(range(10))
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> o = []
+>>> for i in range(10):
+...     o.append(random.randint(10,100))
+...
+>>> o
+[67, 54, 25, 29, 33, 30, 93, 28, 11, 57]
+>>> s = sorted(o)
+>>> s
+[11, 25, 28, 29, 30, 33, 54, 57, 67, 93]
+>>> sorted(o, reverse=True)
+[93, 67, 57, 54, 33, 30, 29, 28, 25, 11]
+>>> lsw = ['a', 'aaa', 'x', 'uv']
+>>> sorted(lsw)
+['a', 'aaa', 'uv', 'x']
+>>> def f(e):
+...     return len(e)
+...
+>>> f('aaa')
+3
+>>> sorted(lsw, key=f)
+['a', 'x', 'uv', 'aaa']
+>>> f
+<function f at 0x000000E42533D8B8>
+>>> type(f)
+<class 'function'>
+>>> type(1)
+<class 'int'>
+>>> lsd = [('abc', 20, 100), ('xyz', 10, 70)]
+>>> sorted(lsd)
+[('abc', 20, 100), ('xyz', 10, 70)]
+>>> (1,2) < (0,1)
+False
+>>> (1,2) < (1,3)
+True
+>>> ('abc', 20, 100) < ('xyz', 10, 70)
+True
+>>> def f(e):
+...     return e[1]
+...
+>>> sorted(lsd, key=f)
+[('xyz', 10, 70), ('abc', 20, 100)]
+>>> e = ('abc', 20, 100)
+>>> f(e)
+20
+>>> e = ('xyz', 10, 70)
+>>> f(e)
+10
+>>> def f(e):
+...     return e[-1]
+...
+>>> sorted(lsd, key=f)
+[('xyz', 10, 70), ('abc', 20, 100)]
+>>> lsw = ['a', 'aaa', 'x', 'uv']
+>>> def f(e):
+...     return len(e)
+...
+>>> sorted(lsw, key=f)
+['a', 'x', 'uv', 'aaa']
+>>> lsd = [('abc', 20, 100), ('xyz', 10, 70)]
+>>> def f(e):
+...     return e[1]
+...
+>>> sorted(lsd, key=f)
+[('xyz', 10, 70), ('abc', 20, 100)]
+>>> sorted(lsw, key=lambda e: len(e))
+['a', 'x', 'uv', 'aaa']
+>>> sorted(lsd, key=lambda e: e[1])
+[('xyz', 10, 70), ('abc', 20, 100)]
+>>> f2 = lambda e: len(e)
+>>> type(f2)
+<class 'function'>
+>>> add2 = lambda x,y : x+y
+>>> add2(2,3)
+5
+>>> add3 = lambda x,y=20 : x+y
+>>> add3(20)
+40
+>>> add3(20,3)
+23
+>>> add2(20,3)
+23
+>>> add3 = lambda x,y=20 : add2(x,y) + x+y
+>>> import functools
+>>> dir(functools)
+['RLock', 'WRAPPER_ASSIGNMENTS', 'WRAPPER_UPDATES', '_CacheInfo', '_HashedS
+eq', '__all__', '__builtins__', '__cached__', '__doc__', '__file__', '__loa
+der__', '__name__', '__package__', '__spec__', '_c3_merge', '_c3_mro', '_co
+mpose_mro', '_convert', '_find_impl', '_ge_from_gt', '_ge_from_le', '_ge_fr
+om_lt', '_gt_from_ge', '_gt_from_le', '_gt_from_lt', '_le_from_ge', '_le_fr
+om_gt', '_le_from_lt', '_lru_cache_wrapper', '_lt_from_ge', '_lt_from_gt',
+'_lt_from_le', '_make_key', 'cmp_to_key', 'get_cache_token', 'lru_cache', '
+namedtuple', 'partial', 'partialmethod', 'recursive_repr', 'reduce', 'singl
+edispatch', 'total_ordering', 'update_wrapper', 'wraps']
+>>> d = {'nok': 10, 'ok': 5}
+>>> sorted(d)
+['nok', 'ok']
+>>> def f(k):
+...     return d[k]
+...
+>>> sorted(d, key=f)
+['ok', 'nok']
+>>> sorted(d, key=lambda k: d[k])
+['ok', 'nok']
+>>> covid = { 'india': { '+ive' : 5 , 'testing' : 60 },
+...           'brazil': { '+ive' : 4, 'testing': 40},
+...           'usa': {'+ive': 6, 'testing':90} }
+>>>
+>>> sorted(covid)
+['brazil', 'india', 'usa']
+>>> def f(k):
+...     return covid[k]['+ive']
+...
+>>> sorted(covid, key=f)
+['brazil', 'india', 'usa']
+>>> sorted(covid, key=lambda k: covid[k]['+ive'])
+['brazil', 'india', 'usa']
+>>> f('india')
+5
+>>> f('usa')
+6
+>>> path = r"."
+>>> import glob
+>>> glob.glob(path+"/*")
+['.\\COMMANDS.txt', '.\\data', '.\\DAY1.txt', '.\\DAY2.txt', '.\\DAY3.txt',
+ '.\\dict_examples.py', '.\\first.py', '.\\list_examples.py', '.\\mex.py',
+'.\\mex_test.py', '.\\README.md', '.\\second.py', '.\\string_examples.py',
+'.\\UPDATE.bat', '.\\UPDATE_LOOP.bat', '.\\__pycache__']
+>>> glob.glob(path+"/*")
+['.\\COMMANDS.txt', '.\\data', '.\\DAY1.txt', '.\\DAY2.txt', '.\\DAY3.txt',
+ '.\\dict_examples.py', '.\\first.py', '.\\list_examples.py', '.\\mex.py',
+'.\\mex_test.py', '.\\README.md', '.\\README.TXT', '.\\second.py', '.\\stri
+ng_examples.py', '.\\UPDATE.bat', '.\\UPDATE_LOOP.bat', '.\\__pycache__']
+>>> import os.path
+>>> dir(os.path)
+['__all__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader_
+_', '__name__', '__package__', '__spec__', '_abspath_fallback', '_get_boths
+eps', '_getfinalpathname', '_getfullpathname', '_getvolumepathname', 'abspa
+th', 'altsep', 'basename', 'commonpath', 'commonprefix', 'curdir', 'defpath
+', 'devnull', 'dirname', 'exists', 'expanduser', 'expandvars', 'extsep', 'g
+enericpath', 'getatime', 'getctime', 'getmtime', 'getsize', 'isabs', 'isdir
+', 'isfile', 'islink', 'ismount', 'join', 'lexists', 'normcase', 'normpath'
+, 'os', 'pardir', 'pathsep', 'realpath', 'relpath', 'samefile', 'sameopenfi
+le', 'samestat', 'sep', 'split', 'splitdrive', 'splitext', 'stat', 'support
+s_unicode_filenames', 'sys']
+>>> quit()
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64
+ bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> path="."
+>>> import mex
+>>> mex.getMaxFileName(path)
+'.\\COMMANDS.txt'
+>>> quit()
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64
+ bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import os.path
+>>> os.path.abspath(".")
+'D:\\handson'
+>>> quit()
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64
+ bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import glob
+>>> glob.glob(".")
+['.']
+>>> glob.glob("*")
+['COMMANDS.txt', 'data', 'DAY1.txt', 'DAY2.txt', 'DAY3.txt', 'dict_examples
+.py', 'first.py', 'list_examples.py', 'mex.py', 'mex_test.py', 'README.md',
+ 'second.py', 'string_examples.py', 'UPDATE.bat', 'UPDATE_LOOP.bat', '__pyc
+ache__']
+>>> quit()
+
+D:\handson>C:
+
+C:\>cd C:\JPMC\DEV\Tools\Python\3.7\
+The system cannot find the path specified.
+
+C:\>dir
+ Volume in drive C is Windows8_OS
+ Volume Serial Number is E056-FEA7
+
+ Directory of C:\
+
+22-02-2017  21:15    <DIR>          activator
+17-05-2018  07:31    <DIR>          activemq
+18-03-2018  16:18    <DIR>          ActiveTcl
+25-11-2017  11:05    <DIR>          AMD
+07-09-2020  12:44    <DIR>          Anaconda2
+05-09-2020  08:46    <DIR>          Anaconda3
+28-05-2020  11:35    <DIR>          Android
+17-05-2018  07:31    <DIR>          ant
+23-02-2020  20:34    <DIR>          BP
+10-05-2020  20:49    <DIR>          cassandra
+18-06-2020  12:11    <DIR>          CloudTools
+17-05-2018  07:32    <DIR>          csf
+25-08-2019  23:32    <DIR>          cygwin64
+19-02-2018  10:05    <DIR>          data
+16-02-2017  06:10    <DIR>          dep
+02-09-2019  19:23    <DIR>          Docker
+03-07-2017  05:05    <DIR>          eclipse
+25-06-2020  12:07    <DIR>          elasticsearch
+24-01-2019  13:25    <DIR>          Elixir
+28-08-2019  23:11    <DIR>          Erlang
+09-02-2019  18:13    <DIR>          flink
+17-05-2018  07:22    <DIR>          flink-1.4.2
+16-02-2018  18:10    <DIR>          flume
+19-06-2018  19:42    <DIR>          gettext
+18-02-2020  00:05    <DIR>          Go
+02-02-2020  09:05    <DIR>          Groovy
+17-12-2014  19:13    <DIR>          gtk
+15-03-2018  12:43    <DIR>          hadoop
+10-03-2018  20:27    <DIR>          hbase
+07-06-2018  19:14    <DIR>          hive
+11-06-2015  13:41    <DIR>          ImageMagick-6.9.1-Q16
+06-11-2014  17:35    <DIR>          indigoampp
+19-11-2014  19:59    <DIR>          inetpub
+24-06-2020  19:02    <DIR>          JavaJdk-11
+03-07-2017  16:08    <DIR>          kafka
+24-06-2020  11:44    <DIR>          kibana
+27-12-2018  17:49    <DIR>          kotlin-native
+27-12-2018  17:48    <DIR>          kotlinc
+07-11-2019  22:36    <DIR>          maven
+02-01-2020  13:54    <DIR>          Meld
+14-08-2019  22:39    <DIR>          Microsoft
+12-02-2020  21:13    <DIR>          MiKTeX
+10-01-2019  19:11    <DIR>          mingw-w64
+28-01-2020  17:04    <DIR>          Minikube
+22-07-2017  19:11    <DIR>          mongodb
+29-05-2020  06:13    <DIR>          msys64
+04-01-2018  18:34    <DIR>          mxnet
+17-06-2019  21:34    <DIR>          nltk_data
+03-07-2020  18:39    <DIR>          nodejs
+29-12-2019  20:51    <DIR>          OLD_SOFTWARE
+16-08-2020  16:50    <DIR>          opscode
+18-03-2018  16:30    <DIR>          page
+11-11-2015  10:00    <DIR>          Perl64
+30-05-2020  20:17    <DIR>          Photo
+09-03-2018  17:45    <DIR>          pig
+17-06-2020  18:05    <DIR>          PowerShell
+07-09-2020  11:54    <DIR>          Program Files
+01-08-2020  07:08    <DIR>          Program Files (x86)
+29-12-2019  17:04    <DIR>          Python37
+26-04-2019  17:24    <DIR>          R
+28-08-2019  23:13    <DIR>          rabbitmq
+02-08-2019  10:20    <DIR>          Redis
+19-07-2019  09:17    <DIR>          Ruby
+02-08-2018  05:12    <DIR>          scala
+14-05-2020  09:29    <DIR>          selenium_drivers
+25-02-2017  10:08    <DIR>          SOAPUI
+07-11-2019  15:27    <DIR>          spark
+10-09-2020  13:17    <DIR>          Splunk
+16-01-2019  19:25    <DIR>          SQLITE3
+24-12-2019  12:48    <DIR>          swagger
+13-07-2014  19:08    <DIR>          sysinternals
+19-04-2020  19:41    <DIR>          tmp
+23-02-2020  20:15    <DIR>          Training
+23-02-2020  20:42    <DIR>          Users
+18-07-2020  17:10    <DIR>          Vagrant
+29-05-2020  08:19    <DIR>          vcpkg
+19-07-2020  10:54    <DIR>          VirtualBox
+25-01-2020  11:46    <DIR>          VirtualBox-5.2
+14-09-2020  14:00    <DIR>          Windows
+06-07-2015  11:22    <DIR>          winutils
+02-03-2017  16:54    <DIR>          xampp
+01-03-2020  10:14    <DIR>          Yarn
+03-07-2017  05:09    <DIR>          zookeeper
+               0 File(s)              0 bytes
+              83 Dir(s)  252,998,627,328 bytes free
+
+C:\>d:
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64
+ bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> a = 1
+>>> type(a)
+<class 'int'>
+>>> a + 2
+3
+>>> quit(0
+... )
+
+D:\handson>echo > classes.py
+
+D:\handson>echo > test_class.py
+
+D:\handson>python test_class.py
+MyInt(2)
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64
+ bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from classes import MyInt
+>>> a = MyInt(2)
+>>> a.value
+2
+>>> MyInt.__init__(a,2)
+>>> b = MyInt(3)
+>>> b.value
+3
+>>> quit()
+
+D:\handson>python test_class.py
+5
+MyInt(2)
+
+D:\handson>python test_class.py
+5
+MyInt(2)
+
+D:\handson>python test_class.py
+5
+MyInt(2)
+
+D:\handson>python test_class.py
+Traceback (most recent call last):
+  File "test_class.py", line 1, in <module>
+    from classes import MyInt
+  File "D:\handson\classes.py", line 9
+    return "MyInt("+str(self.inner_value)+
+                                          ^
+SyntaxError: invalid syntax
+
+D:\handson>python test_class.py
+5
+MyInt(2,10)
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64
+ bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from classes import MyInt
+>>> a = MyInt(2)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: __init__() missing 1 required positional argument: 'v1'
+>>> quit()
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64
+ bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from classes import MyInt
+>>> a = MyInt(2)
+>>> b = MyInt(3)
+>>> a.add(b)
+5
+>>> a + b
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unsupported operand type(s) for +: 'MyInt' and 'MyInt'
+>>> quit()
+
+D:\handson>python test_class.py
+5
+MyInt(2)
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64
+ bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> dir(str)
+['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__
+', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__
+getnewargs__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__it
+er__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__ne
+w__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '_
+_setattr__', '__sizeof__', '__str__', '__subclasshook__', 'capitalize', 'ca
+sefold', 'center', 'count', 'encode', 'endswith', 'expandtabs', 'find', 'fo
+rmat', 'format_map', 'index', 'isalnum', 'isalpha', 'isascii', 'isdecimal',
+ 'isdigit', 'isidentifier', 'islower', 'isnumeric', 'isprintable', 'isspace
+', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'maketrans', '
+partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit',
+'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title'
+, 'translate', 'upper', 'zfill']
+>>> "OK" + "OK"
+'OKOK'
+>>> "OK".__add__("OK")
+'OKOK'
+>>> "OK"[0
+... ]
+'O'
+>>> dir(list)
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__d
+ir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__
+getitem__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__in
+it_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne
+__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__',
+'__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subcl
+asshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert'
+, 'pop', 'remove', 'reverse', 'sort']
+>>> open("x")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+FileNotFoundError: [Errno 2] No such file or directory: 'x'
+>>> raise FileNotFoundError("OMG")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+FileNotFoundError: OMG
+>>> def my_open(path):
+...     raise FileNotFoundError("OMG")
+...
+>>> my_open("x")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 2, in my_open
+FileNotFoundError: OMG
+>>> try:
+...     my_open("x")
+... except FileNotFoundError :
+...     print("File really not found")
+...
+File really not found
+>>>
+
+
+
+
+
+
+
+
+
+
+
+

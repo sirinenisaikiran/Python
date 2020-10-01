@@ -1,0 +1,7 @@
+from flask import Flask
+from config import Config
+
+app = Flask(__name__)
+app.config.from_object(Config)
+print(app.config['SECRET_KEY'])
+from app import routes  #should be last as routes module needs above app variable 

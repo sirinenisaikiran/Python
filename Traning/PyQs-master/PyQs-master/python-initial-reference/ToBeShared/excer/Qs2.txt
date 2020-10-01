@@ -1,0 +1,71 @@
+1.Use any python concept, but make the code elegant, readable and maintainable
+  eg no hardcoding, when required use comprehension, iterator, zip/enumerate, functional and module/function based
+  use good namining convention and future centric 
+  
+2.Each question is of 10 marks , total - 30 marks 
+
+3. Install Anaconda from https://www.anaconda.com/download/ or Cpython reference installation 
+   or any python3 instalation is enough, install required 3rd part modules eg requests, django etc 
+   or Search google for online python 3 editor and use one of them if required modules are present 
+
+4. Each participant must try to solve by own.
+   Don't cut and paste any code from any other source else answersheet would be disqualified 
+
+
+------------------------------------------------------------------
+
+1. Write IMDB  class 
+Given a movie_id , search imdb  and get it's ratings 
+Design decisions:
+1. class name IMDB with movie_id as constructor parameter and one method  
+    def ratings(source='Internet Movie Database')
+      Source could be 'Internet Movie Database' or 'Metacritic'
+2. Use Rest server http://omdbapi.com/
+  eg GET with  http://omdbapi.com/?i=tt1270797&apikey=BanMePlz
+3. Movie id can be obtained from from https://www.imdb.com
+4. Advanced class structure can be seen from existing python module https://imdbpy.sourceforge.io/
+
+Note:
+It is better to use internet to access public json rest api  
+It is not accessible, then run below script reference\Code\web\imdb.py in one window and then endpoint is http://127.0.0.1:5000/?i=tt1270797&apikey=BanMePlz
+$ python imdb.py 
+
+
+
+
+
+
+2. Pandas 
+a. Read data\sales_transactions.xlsx 
+b. What percentage of the total order value(ie ext price) does each order represent?"
+Design decisions: 
+    Use dataframe.transform along  with groupby of order 
+
+
+
+
+3. Write Django REST API server 
+API: 
+GET    http://localhost:8000/get_weather?location=mumbai
+Result: In Json 
+{ 'todays_date':{'text': .., 'high':..., 'low': ..}, 'tomorrow_date': {...} .. like five days data}
+
+Design decisions:
+    Use -  module weather-api 
+    https://pypi.org/project/weather-api/
+    Note: It's better to use module. If module access is not there 
+    Then create above json data structure by manually in code, send all five dates(current date+next 4 days)
+    and text, high, low can be random text, temp(float) respectively
+
+3.2. Test using requests 
+a. write one script get_weather.py to interact with REST server 
+b. should take location via command line ie sys.argv
+c. print json output using pprint.pprint , check reference of pprint on how to use 
+
+Advanced:For experimental purpose- not for assessment 
+1. Enhance view with 
+   A. handle POST with application/x-www-form-urlencoded and parse 'location'
+   B. handle POST with application/json and parse {"location":"mumbai"}
+   C. handle GET with REST like url eg  with http://localhost:8000/get_weather/mumbai
+
+

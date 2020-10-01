@@ -1,0 +1,132 @@
+
+########################
+from pkg.poly import Poly 
+a = Poly(1,2,3)  #an, ...., a0 
+b = Poly(1,0,1,1,2,3)
+c = a+b 
+print(c) #Poly ( 1,0,1, 2,4,6)
+######################
+from pkg.file import File 
+fs = File(".")
+fs.getMaxSizeFile(2) # gives two max file names 
+fs.getLatestFiles(datetime.date(2018,2,1))
+#Returns list of files after 1st Feb 2018 
+#############################
+Design a mixin class LoggingMixin to be used as 
+
+class MyClass(LoggingMixin):
+    def somefunction.......
+        self.log(msg, *args, **kwargs)
+
+
+class LoggingMixin:
+    def log(self, msg, *args, **kwargs):
+        logs to a file and console together 
+        get all configuration from calling below methods 
+            isFileLevelLoggingRequired if file logging required or not?
+            fileName = getLogFileName 
+            fileLogLevel = getFileLogLevel
+            fileFormatter = getFileFormatter 
+            isFileLevelLoggingRequired if console logging required or not?
+            consoleLogLevel = getConsoleLogLevel
+            consoleFormatter = getConsoleFormatter 
+        these methods can be overridden by derived class 
+        if not overriddern, then use resonable default 
+        by implementing in this class 
+        
+        
+######################################
+#Create a Subprocess Class which have following methods 
+import subprocess as S
+class Subprocess(object):
+    def __init__(self, command, wait_after_kill=60):
+        """initialization, store all into instance var 
+        also, initialize executed flag"""
+    def _execute(self, timeout=None, stdin=None, stdout=S.PIPE, 
+                stderr=S.PIPE, bufsize=-1, pipeFlag=False):
+        """ Internal method - implement timeout behaviour
+        with S.Popen....
+        Check executed flag and return at begining if set 
+        If pipeFlag is true return immediate after proc creation 
+        such that pipeTo can consume this stdout
+        """
+    def exitcode(self, timeout=None):
+        """ calls _execute and the return it's exit code """
+    def stdout(self, timeout=None):
+        """ calls _execute and the return it's exit code """
+    def stderr(self, timeout=None):
+        """ calls _execute and the return it's exit code """
+    def redirectTo(self, fileName, timeout=None):
+        """ Open fileName, pass it's f to _execute  """
+    def pipeTo(self, rhs_command, timeout=None):
+        """ calls execute with pipeFlag True
+        and then does standard pipe functionality"""
+    def get_pattern(self, pattern, timeout=None, isout=True):
+        """If isout is true, findall pattern in stdout 
+        else in stderr"""
+
+
+#Testing 
+command = "nslookup www.google.com"
+file= "out.txt" 
+pattern = r"Address: (.+?)\n\n" 
+pattern2 = r"Addresses:\s+((.+)\n\t\s*(.+)\n\n)"
+command1 = "type out.txt"
+command2 = 'findstr /c:"Server"'
+
+a = Subprocess(command)
+a.exitcode()
+a.stdout()
+a.stderr()
+#timeout case 
+a = Subprocess(command)
+a.exitcode(1)
+a.stdout(1)
+a.stderr(1)
+#others 
+a = Subprocess(command)
+a.redirectTo(file)
+#others 
+a = Subprocess(command1)
+b = a.pipeTo(command2)
+b.exitcode()
+b.stdout()
+b.stderr()
+#others 
+a = Subprocess(command)
+a.get_pattern(pattern)
+
+
+##Can You implement above with asyncio to make this asynchronous Subprocess execution 
+#Hint - check reference\advncedDoc\asynchronous.py 
+
+#Testing 
+a = AsyncSubprocess(c1=command, c2=command, c3=command)
+>>> a.get_all_results()
+{'c1': {'exitcode': 0, 'command': 'nslookup www.google.com', 'stderr': '', 'stdout': 'Server:\t\t218.248.112.1\nAddress:\t218.248.112.1#53\n\nNon-authoritativeanswer:\nName:\twww.google.com\nAddress: 172.217.163.68\n\n'}, 'c3': {'exitcode': 0, 'command': 'nslookup www.google.com', 'stderr': '', 'stdout': 'Server:\t\t218.248.112.1\nAddress:\t218.248.112.1#53\n\nNon-authoritative answer:\nName:\twww.google.com\nAddress: 172.217.163.68\n\n'}, 'c2': {'exitcode': 0, 'command': 'nslookup www.google.com', 'stderr': '', 'stdout': 'Server:\t\t218.248.112.1\nAddress:\t218.248.112.1#53\n\nNon-authoritative answer:\nName:\twww.google.com\nAddress: 172.217.163.68\n\n'}}
+
+a = AsyncSubprocess(c1=command, c2=command, c3=command)
+i = iter(a.get_next_result())
+>>> next(i)
+{'c3': {'exitcode': 0, 'command': 'nslookup www.google.com', 'stderr': '', 'stdout': 'Server:\t\t218.248.112.1\nAddress:\t218.248.112.1#53\n\nNon-authoritativeanswer:\nName:\twww.google.com\nAddress: 172.217.163.68\n\n'}}
+>>> next(i)
+{'c1': {'exitcode': 0, 'command': 'nslookup www.google.com', 'stderr': '', 'stdout': 'Server:\t\t218.248.112.1\nAddress:\t218.248.112.1#53\n\nNon-authoritativeanswer:\nName:\twww.google.com\nAddress: 172.217.163.68\n\n'}}
+>>> next(i)
+{'c2': {'exitcode': 0, 'command': 'nslookup www.google.com', 'stderr': '', 'stdout': 'Server:\t\t218.248.112.1\nAddress:\t218.248.112.1#53\n\nNon-authoritativeanswer:\nName:\twww.google.com\nAddress: 172.217.163.68\n\n'}}
+>>> next(i)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+
+
+
+
+
+
+
+
+
+
+
+
+

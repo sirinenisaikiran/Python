@@ -1,0 +1,12 @@
+1. System configuration - winows/8/8.1/10 standard configuration (prefarably 8GB RAM)
+2. Each partiticipants must have one system to work on 
+3. Download Anaconda and notepad++
+> choose python 2.7 or 3.7, preferred python3.7 
+https://www.anaconda.com/download/
+>Notepad++
+https://notepad-plus-plus.org/download/v7.6.2.html
+Note: Ananconda installation takes long time, hence must be installed offline
+
+4. System must be connected to internet as many python modules might need to be downloaded 
+> check with , this should work unhindered 
+$ pip install sumy

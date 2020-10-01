@@ -1,0 +1,13 @@
+<h1> List of Queries for id {{ id }} </h1>
+
+{# this is comment #}
+
+{% if queries.items %}
+    Number of Queries: {{ queries.items | length }}    
+   
+{% else %}
+    No Queries.
+{% endif %}
+
+<br />
+<a href="{% url 'views_index' id|add:100 %}" > Refresh </a>

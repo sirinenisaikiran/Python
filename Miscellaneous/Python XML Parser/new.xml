@@ -1,0 +1,14 @@
+<metadata>
+  <food>
+    <item name="breakfast">Idly</item>
+    <price>20&#8377;</price>
+    <description updated="yes">Two idlys with chutney description has been added</description>
+    <calories>553</calories>
+  </food>
+  <food>
+    <item name="breakfast">Paper dosa</item>
+    <price>25&#8377;</price>
+    <description updated="yes">Plain papaer dosa with chutney description has been added</description>
+    <calories>400</calories>
+  </food>
+</metadata>

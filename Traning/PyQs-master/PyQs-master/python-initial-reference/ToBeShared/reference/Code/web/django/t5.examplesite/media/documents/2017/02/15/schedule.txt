@@ -1,0 +1,24 @@
+*** c#
+15 chapters - 10 days    4-Jan   -   15 Feb
+
+
+*** .net 
+VS            - 1 day 
+Foundation    - 5 days 
+Data          - 3 days 
+Presentation  - 3 days 
+Communication - 3 days 
+Web services  - 1 day 
+LINQ          - 1 day 
+WWF           - 1 day 
+
+
+*** cxf
+
+*** soapui
+
+*** spark
+
+*** data analytic with scala and spark
+
+*** data analytic with python and spark 

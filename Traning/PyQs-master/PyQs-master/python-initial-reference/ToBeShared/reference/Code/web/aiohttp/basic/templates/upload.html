@@ -1,0 +1,11 @@
+<!doctype html>
+<title>Upload new File</title>
+<body>
+<h1>Upload new File</h1>
+<form method="post" enctype="multipart/form-data">
+{# add below at first #}
+<input type="hidden" name="{{token_name}}" value="{{token}}" />
+<input type=file name="file" />
+<input type=submit value="Upload" />
+</form>
+</body></html>

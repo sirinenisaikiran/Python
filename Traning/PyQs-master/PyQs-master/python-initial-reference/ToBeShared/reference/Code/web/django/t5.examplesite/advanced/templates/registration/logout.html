@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+{{title}}
+<br/>
+<p> <a href="{% url 'login' %}?next={% url 'document-lists' %}">Login Again</a><p>  {# next is must else going to profile #}
+{% endblock %}

@@ -1,0 +1,6 @@
+
+Mock wheather 
+
+http://weatherapi1971.pythonanywhere.com/query.yahooapis.com/v1/public/yql?q=select* from weather.forecast where woeid in (select woeid from geo.places(1) where text='mumbai') and u='c'&format=json
+http://weatherapi1971.pythonanywhere.com/query.yahooapis.com/v1/public/yql?q=select* from weather.forecast where woeid in (select woeid from geo.places(1) where text='mumbai') and u='c'&format=xml
+

@@ -1,0 +1,10 @@
+<!doctype html>
+<title>Upload new File</title>
+<body>
+<h1>Upload new File</h1>
+<form method="post" enctype="multipart/form-data">
+{% module xsrf_form_html() %}
+<input type=file name="file" />
+<input type=submit value="Upload" />
+</form>
+</body></html>

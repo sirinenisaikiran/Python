@@ -1,0 +1,455 @@
+Microsoft Windows [Version 6.3.9600]
+(c) 2013 Microsoft Corporation. All rights reserved.
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit
+(AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> el = []
+>>> el.append(30)
+>>> 30 in el
+True
+>>> for e in el:
+...     print(e)
+...
+30
+>>> dir(list)
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__'
+, '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__'
+, '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__',
+ '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__r
+educe__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__'
+, '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear',
+ 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort
+']
+>>> help(list.insert)
+Help on method_descriptor:
+
+insert(self, index, object, /)
+    Insert object before index.
+
+>>> quit()
+
+D:\handson>echo > list_examples.py
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit
+(AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> lst = [ 3, 5, 2, 7]
+>>> output = [ 9, 25, 4, 49]
+>>>
+>>> lst * lst
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: can't multiply sequence by non-int of type 'list'
+>>> quit()
+
+D:\handson>python list_examples.py
+[9, 25, 49]
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit
+(AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> lst=[3,5,2,7]
+>>> output=[]
+>>> for e in lst:
+...     if e%2==1:
+...              output.append(e*e)
+...
+>>> print(output)
+[9, 25, 49]
+>>> quit()
+
+D:\handson>python list_examples.py
+[9, 25, 49]
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit
+(AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> lst = [1, 2, [1,2, [3]], 4]
+>>> len(lst)
+4
+>>> lst[3] = 40
+>>> lst
+[1, 2, [1, 2, [3]], 40]
+>>> lst.append(50)
+>>> lst
+[1, 2, [1, 2, [3]], 40, 50]
+>>> lst[2]
+[1, 2, [3]]
+>>> lst[2][0]
+1
+>>> lst[2][0] = 10
+>>> lst
+[1, 2, [10, 2, [3]], 40, 50]
+>>> tmp = lst[2]
+>>> tmp
+[10, 2, [3]]
+>>> type(tmp)
+<class 'list'>
+>>> tmp[0]
+10
+>>> lst[2][0] = 100
+>>> lst
+[1, 2, [100, 2, [3]], 40, 50]
+>>> tmp = lst[2]
+>>> tmp
+[100, 2, [3]]
+>>> tmp[-1]
+[3]
+>>> tmp2 = tmp[-1]
+>>> tmp2
+[3]
+>>> tmp2[0]
+3
+>>> lst[2][-1][0] = 30
+>>> lst
+[1, 2, [100, 2, [30]], 40, 50]
+>>> [1, 2, [100, 2, [30,50]], 40, 50]
+[1, 2, [100, 2, [30, 50]], 40, 50]
+>>> lst[2][2].append(50)
+>>> lst
+[1, 2, [100, 2, [30, 50]], 40, 50]
+>>>
+>>> lst = [1,2,3,1,2,3]
+>>> output = [1,2,3]
+>>> output = []
+>>> for e in lst:
+...     if e not in output:
+...             output.append(e)
+...
+>>> output
+[1, 2, 3]
+>>> set(lst)
+{1, 2, 3}
+>>> output = list(set(lst))
+>>> output
+[1, 2, 3]
+>>> s1 = { 1,2,3}
+>>> es = set()
+>>> ed = {} # this is not empty set, this is ??
+>>> type(es)
+<class 'set'>
+>>> type(ed)
+<class 'dict'>
+>>> quit()
+
+D:\handson>python string_examples.py
+H - 1
+e - 1
+l - 3
+l - 3
+o - 2
+  - 1
+W - 1
+o - 2
+r - 1
+l - 3
+d - 1
+
+D:\handson>python string_examples.py
+l - 3
+r - 1
+H - 1
+o - 2
+e - 1
+  - 1
+W - 1
+d - 1
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit
+(AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> s1 = { 1,2,3,4}
+>>> es = set()
+>>> type(es)
+<class 'set'>
+>>> len(s1)
+4
+>>> 3 in s1
+True
+>>> 3 not in s1
+False
+>>> s1 == { 4,3,2,1}
+True
+>>> for e in s1:
+...     print(e)
+...
+1
+2
+3
+4
+>>> for e in {4,3,2,1}:
+...     print(e)
+...
+1
+2
+3
+4
+>>> s1
+{1, 2, 3, 4}
+>>> s1[0]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'set' object is not subscriptable
+>>> s1.append(30)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'set' object has no attribute 'append'
+>>> s1.add(50)
+>>> s1
+{1, 2, 3, 4, 50}
+>>> dir(set)
+['__and__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '_
+_eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__ian
+d__', '__init__', '__init_subclass__', '__ior__', '__isub__', '__iter__', '__ixo
+r__', '__le__', '__len__', '__lt__', '__ne__', '__new__', '__or__', '__rand__',
+'__reduce__', '__reduce_ex__', '__repr__', '__ror__', '__rsub__', '__rxor__', '_
+_setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__xor__',
+'add', 'clear', 'copy', 'difference', 'difference_update', 'discard', 'intersect
+ion', 'intersection_update', 'isdisjoint', 'issubset', 'issuperset', 'pop', 'rem
+ove', 'symmetric_difference', 'symmetric_difference_update', 'union', 'update']
+>>> s1 = {1,2,3,4}
+>>> s2 = {4,5,6}
+>>> s1 & s2
+{4}
+>>> s1 | s2
+{1, 2, 3, 4, 5, 6}
+>>> s1 - s2
+{1, 2, 3}
+>>> s1 ^ s2
+{1, 2, 3, 5, 6}
+>>> (s1-s2) | (s2-s1)
+{1, 2, 3, 5, 6}
+>>> # can you create list of sets of two elements
+>>>
+>>> [{1,2}, {3,4}]
+[{1, 2}, {3, 4}]
+>>> # can you create set of lists of two elements
+>>> {[1,2], [2,3]}
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unhashable type: 'list'
+>>> s = {1,2,1,1,2}
+>>> s
+{1, 2}
+>>> hash(1)
+1
+>>> hash("ok")
+8215571810556385445
+>>> hash("o k")
+493846088231863346
+>>> hash([1,2])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unhashable type: 'list'
+>>> {(1,2), (2,3)}
+{(1, 2), (2, 3)}
+>>> hash( (1,2) )
+3713081631934410656
+>>> hash("ok")
+8215571810556385445
+>>> lst = [1,2,3]
+>>> tuple(lst)
+(1, 2, 3)
+>>> t = (1,2,3)
+>>> et = ()
+>>> type(et)
+<class 'tuple'>
+>>> len(t)
+3
+>>> 2 in t
+True
+>>> t == (3,2,1)
+False
+>>> for e in t:
+...     print(e)
+...
+1
+2
+3
+>>> t[0]
+1
+>>> t[0] = 20
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+>>> t2 = t + (5,6)
+>>> t
+(1, 2, 3)
+>>> t2
+(1, 2, 3, 5, 6)
+>>> t.append(30)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'tuple' object has no attribute 'append'
+>>> dir(tuple)
+['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '_
+_eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs
+__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__'
+, '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_e
+x__', '__repr__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclas
+shook__', 'count', 'index']
+>>> dir(list)
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__'
+, '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__'
+, '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__',
+ '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__r
+educe__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__'
+, '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear',
+ 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort
+']
+>>> set(dir(list)) - set(dir(set))
+{'__imul__', 'extend', '__reversed__', '__setitem__', '__getitem__', 'sort', '__
+delitem__', 'insert', '__rmul__', 'index', '__add__', 'count', '__iadd__', 'appe
+nd', '__mul__', 'reverse'}
+>>> set(dir(list)) ^ set(dir(set))
+{'__imul__', 'union', '__rsub__', '__or__', 'symmetric_difference_update', 'sort
+', '__setitem__', '__delitem__', 'issubset', 'insert', '__rxor__', '__rmul__', '
+__iadd__', '__rand__', 'intersection_update', 'reverse', 'extend', 'difference_u
+pdate', 'difference', '__sub__', '__mul__', '__xor__', '__getitem__', 'isdisjoin
+t', '__iand__', 'update', '__ixor__', '__ror__', 'append', '__reversed__', 'coun
+t', '__and__', 'intersection', 'add', '__isub__', 'discard', 'issuperset', 'symm
+etric_difference', 'index', '__add__', '__ior__'}
+>>> lst = [ (1,2), (2,[3,4]), [3, (1,2)] ]
+>>> lst[1][1][1] = 40
+>>> lst
+[(1, 2), (2, [3, 40]), [3, (1, 2)]]
+>>> lst[1][1]
+[3, 40]
+>>> lst[1][1] = 40
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+>>> lst[1][1].append(40)
+>>> lst
+[(1, 2), (2, [3, 40, 40]), [3, (1, 2)]]
+>>> lst = [1,2,3]
+>>> l2 = [ lst, lst, lst]
+>>> l2
+[[1, 2, 3], [1, 2, 3], [1, 2, 3]]
+>>> l2[-1][1] = 20
+>>> l2
+[[1, 20, 3], [1, 20, 3], [1, 20, 3]]
+>>> lst
+[1, 20, 3]
+>>> l22 = [ lst.copy(), lst[:], lst.copy()]
+>>> l22
+[[1, 20, 3], [1, 20, 3], [1, 20, 3]]
+>>> l2[-1][1] = 200
+>>> l22[-1][1] = 200
+>>> l22
+[[1, 20, 3], [1, 20, 3], [1, 200, 3]]
+>>> lst
+[1, 200, 3]
+>>> lst
+[1, 200, 3]
+>>> lst.append(lst)
+>>> lst
+[1, 200, 3, [...]]
+>>> lst[-1]
+[1, 200, 3, [...]]
+>>> lst[-1][-1]
+[1, 200, 3, [...]]
+>>> lst[-1][-1][-1][-1][-1][0] = 20
+>>> lst
+[20, 200, 3, [...]]
+>>> d = { 'ok': 1, 'nok': 2}
+>>> ed = {}
+>>> type(ed)
+<class 'dict'>
+>>> len(d)
+2
+>>> 'ok' in d
+True
+>>> d['ok']
+1
+>>> d['ok'] = 20
+>>> d
+{'ok': 20, 'nok': 2}
+>>> d['new'] = 20
+>>> d
+{'ok': 20, 'nok': 2, 'new': 20}
+>>> for k in d:
+...     print(k, d[k])
+...
+ok 20
+nok 2
+new 20
+>>> quit()
+
+D:\handson>python dict_examples.py
+
+D:\handson>python dict_examples.py
+{'H': 1, 'e': 1, 'l': 3, 'o': 2, ' ': 1, 'W': 1, 'r': 1, 'd': 1}
+
+D:\handson>python dict_examples.py
+{'Hello': 3, 'World': 1, 'Earth': 1, 'Everyone': 1}
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64 bit
+(AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> d = { 'ok': 1, 'nok': 2}
+>>> del d['ok']
+>>> lst = [1,2,3]
+>>> del lst[0]
+>>> lst
+[2, 3]
+>>> d.keys()
+dict_keys(['nok'])
+>>> d.values()
+dict_values([2])
+>>> d.items()
+dict_items([('nok', 2)])
+>>> dir(dict)
+['__class__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__'
+, '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__',
+ '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '
+__lt__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__seta
+ttr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'clear', 'co
+py', 'fromkeys', 'get', 'items', 'keys', 'pop', 'popitem', 'setdefault', 'update
+', 'values']
+>>> d = { 'ok': 1, 'nok': 2}
+>>> del d['ok']
+>>> d
+{'nok': 2}
+>>> d = {}
+>>> d
+{}
+>>> d = { 'ok': 1, 'nok': 2}
+>>> c = 0
+>>> while c < 3:
+...     d = {'ok': [d] }
+...     c = c + 1
+...
+>>> d
+{'ok': [{'ok': [{'ok': [{'ok': 1, 'nok': 2}]}]}]}
+>>> type(d)
+<class 'dict'>
+>>> d.keys()
+dict_keys(['ok'])
+>>> d['ok']
+[{'ok': [{'ok': [{'ok': 1, 'nok': 2}]}]}]
+>>> type(d['ok'])
+<class 'list'>
+>>> len(d['ok'])
+1
+>>> d['ok'][0]
+{'ok': [{'ok': [{'ok': 1, 'nok': 2}]}]}
+>>> d['ok'][0]['ok']
+[{'ok': [{'ok': 1, 'nok': 2}]}]
+>>> d['ok'][0]['ok'][0]
+{'ok': [{'ok': 1, 'nok': 2}]}
+>>> d['ok'][0]['ok'][0]['ok']
+[{'ok': 1, 'nok': 2}]
+>>> d['ok'][0]['ok'][0]['ok'][0]
+{'ok': 1, 'nok': 2}
+>>> d['ok'][0]['ok'][0]['ok'][0]['ok'] = 100
+>>> d
+{'ok': [{'ok': [{'ok': [{'ok': 100, 'nok': 2}]}]}]}
+>>>

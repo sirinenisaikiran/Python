@@ -1,0 +1,15 @@
+{% load staticfiles %}
+<!DOCTYPE>
+<html>
+    <head>
+        <title>Books</title>       
+    </head>
+    <body>
+        {% for book in book_list %} 
+            <h1>{{ book.name }}  </h1>
+            {% for author in book.authors.all %} 
+              <h2>  {{ author.name}}</h2>
+            {% endfor %} 
+        {% endfor %} 
+    </body>
+</html>

@@ -1,0 +1,12 @@
+__pycache__
+data/**
+*.pyc
+COMMANDS.txt
+*.db
+*.bat
+metastore_db/**
+spark-warehouse/**
+.ipynb_checkpoints/**
+pipe_model.sparkLR/**
+final.sklearnModel/**
+demo_code/**

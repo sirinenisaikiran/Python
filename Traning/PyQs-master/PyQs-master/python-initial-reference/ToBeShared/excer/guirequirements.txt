@@ -1,0 +1,11 @@
+Entry for url (left)
+    Any URL can be added
+    Return key handling 
+    crtl+c and crtl+v handling 
+Get Button (right)
+    Clicking would start the process
+    then text changes to cancel 
+Label to display log data from external process
+    size should be 100x200 
+MainWindow
+    size 200x200

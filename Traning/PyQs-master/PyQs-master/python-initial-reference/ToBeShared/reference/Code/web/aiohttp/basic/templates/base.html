@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<body>
+{% block content %}   {# block can be inside another jinja2 statement #}
+<table border="1">
+<tr><th>Key</th><th>Value</th></tr>
+{% if envs.items() %}  
+{% for key,value in envs.items() %}
+
+<tr>
+<td>{{ key }}</td>
+<td>{{ value }}</td>
+</tr>
+
+{% endfor %}
+{% endif %}
+</table>
+{% endblock content %}
+</body>
+</html>

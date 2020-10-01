@@ -1,0 +1,5 @@
+include flaskr/example.json
+graft flaskr/static
+graft flaskr/templates
+graft flaskr/uploads
+global-exclude *.pyc

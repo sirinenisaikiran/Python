@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Create an account{% endblock %}
+
+{% block head_script %} 
+        function validateForm() { 
+            if(document.frm.again_password.value != document.frm.password.value) { 
+                alert("Both password must be same "); 
+                document.frm.password.value = "";
+                document.frm.again_password.value = "";
+                document.frm.password.focus(); 
+                return false; 
+                }             
+            return true;
+        }
+
+{% endblock %}
+
+{% block content %}
+  <h1>Create an account</h1>
+  
+  
+
+  <form action="{% url 'signup' %}" method="post" name="frm" onsubmit="return validateForm()">
+      {% csrf_token %}
+      <table border="1">      {{ form.as_table }}  </table>
+      <input type="submit" value="Create the account">
+      
+  </form>
+{% endblock %}

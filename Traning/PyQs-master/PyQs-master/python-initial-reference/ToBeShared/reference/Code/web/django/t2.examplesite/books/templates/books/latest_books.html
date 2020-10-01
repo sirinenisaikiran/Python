@@ -1,0 +1,13 @@
+{% load staticfiles %}
+<!DOCTYPE>
+<html>
+    <head>
+        <title>DJANGO</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'books/style.css' %}" />
+    </head>
+    <body>
+        {% for book in book_list %} 
+            <h1>{{ book.name }}  {{ book.pub_date}}</h1>
+        {% endfor %} 
+    </body>
+</html>

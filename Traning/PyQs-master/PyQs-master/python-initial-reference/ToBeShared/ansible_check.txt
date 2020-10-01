@@ -1,0 +1,30 @@
+Ansible Control Machine and Ansible Node
+    You use Ansible Control Machine to control all other hosts, called Ansible Node 
+
+Prerequisite 
+    1. Must know how to connect/ssh to Ansible control machine
+       (eg using jump box or any other way)
+    2. Must know ansible node hostname 
+       in example below, it is mentioned as ANSIBLE_NODE_NAME 
+    3. Must know username and password for connecting to ansible node
+       in example below, it is mentioned as ANSIBLE_USER for username
+    4. There must be 'passwordless ssh' connectivity between 
+       Ansible control machine and Ansible node    
+
+#Test after connecting to Ansible control machine
+#Shell prompt is denoted as '$'
+
+$ echo 'ANSIBLE_NODE_NAME ansible_ssh_user=ANSIBLE_USER ' >> hosts 
+
+$ ansible all -i hosts -m ping
+#Search below in result 
+SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+
+#Give password for ANSIBLE_USER at 'BECOME password:' prompt in console
+$ ansible all -i hosts -a "/usr/bin/whoami" -b -K 
+#Search below in result 
+CHANGED | rc=0 >>
+root

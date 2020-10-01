@@ -1,0 +1,422 @@
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64
+ bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> lst1 = ['a', 'b', 'c']
+>>> lst2 = [ 10, 20, 30]
+>>> list(zip(lst1, lst2))
+[('a', 10), ('b', 20), ('c', 30)]
+>>> list(enumerate(lst1))
+[(0, 'a'), (1, 'b'), (2, 'c')]
+>>> tmp = list(enumerate(lst1))
+>>> for e in tmp:
+...     print(e[0])  #
+...
+0
+1
+2
+>>> for t in list(zip(lst1, lst2)):
+...     print(t[1])
+...
+10
+20
+30
+>>> for f,s in tmp:
+...     print(f)
+...
+0
+1
+2
+>>> lsw = [ ('ABC', 20, 30), ('XYZ', 30, 40)]
+>>> for n,a,s in lsw:
+...     print( a+s)
+...
+50
+70
+>>> import glob
+>>> glob.glob("D:\\handson\\data\\*")
+['D:\\handson\\data\\boston.csv', 'D:\\handson\\data\\empty_book.xlsx', 'D:
+\\handson\\data\\example-handson.csv', 'D:\\handson\\data\\example-handson.
+xml', 'D:\\handson\\data\\example.csv', 'D:\\handson\\data\\example.docx',
+'D:\\handson\\data\\example.html', 'D:\\handson\\data\\example.json', 'D:\\
+handson\\data\\example.pdf', 'D:\\handson\\data\\example.pptx', 'D:\\handso
+n\\data\\example.xml', 'D:\\handson\\data\\example1.html', 'D:\\handson\\da
+ta\\example1.pdf', 'D:\\handson\\data\\example1.xml', 'D:\\handson\\data\\h
+aving-chart-placeholder.pptx', 'D:\\handson\\data\\having-table-placeholder
+.pptx', 'D:\\handson\\data\\iris.csv', 'D:\\handson\\data\\iris.csv.bk', 'D
+:\\handson\\data\\monty-truth.png', 'D:\\handson\\data\\Nifty-17_Years_Data
+-V1.xlsx', 'D:\\handson\\data\\population.csv', 'D:\\handson\\data\\python_
+logo.png', 'D:\\handson\\data\\q.html', 'D:\\handson\\data\\sales_transacti
+ons.xlsx', 'D:\\handson\\data\\ver.csv', 'D:\\handson\\data\\watermark.pdf'
+, 'D:\\handson\\data\\weather.json', 'D:\\handson\\data\\window.csv', 'D:\\
+handson\\data\\WindowsUpdate.log']
+>>> tmp = glob.glob(r"D:\handson\data\*")
+>>> #NO NO -> tmp = glob.glob("D:\handson\data\*")
+>>> path = r"D:\handson\data\*"
+>>> tmp = glob.glob(path)
+>>> len(tmp)
+29
+>>> import glob
+>>> path = r"D:\handson\data\*"
+>>> tmp = glob.glob(path)
+>>> tmp
+['D:\\handson\\data\\boston.csv', 'D:\\handson\\data\\empty_book.xlsx', 'D:
+\\handson\\data\\example-handson.csv', 'D:\\handson\\data\\example-handson.
+xml', 'D:\\handson\\data\\example.csv', 'D:\\handson\\data\\example.docx',
+'D:\\handson\\data\\example.html', 'D:\\handson\\data\\example.json', 'D:\\
+handson\\data\\example.pdf', 'D:\\handson\\data\\example.pptx', 'D:\\handso
+n\\data\\example.xml', 'D:\\handson\\data\\example1.html', 'D:\\handson\\da
+ta\\example1.pdf', 'D:\\handson\\data\\example1.xml', 'D:\\handson\\data\\h
+aving-chart-placeholder.pptx', 'D:\\handson\\data\\having-table-placeholder
+.pptx', 'D:\\handson\\data\\iris.csv', 'D:\\handson\\data\\iris.csv.bk', 'D
+:\\handson\\data\\monty-truth.png', 'D:\\handson\\data\\Nifty-17_Years_Data
+-V1.xlsx', 'D:\\handson\\data\\population.csv', 'D:\\handson\\data\\python_
+logo.png', 'D:\\handson\\data\\q.html', 'D:\\handson\\data\\sales_transacti
+ons.xlsx', 'D:\\handson\\data\\ver.csv', 'D:\\handson\\data\\watermark.pdf'
+, 'D:\\handson\\data\\weather.json', 'D:\\handson\\data\\window.csv', 'D:\\
+handson\\data\\WindowsUpdate.log']
+>>> filename = r"D:\handson\data\iris.csv"
+>>> f = open(filename, "rt")
+>>> lines = f.readlines()
+>>> f.close()
+>>> with open(filename, "rt") as f:
+...     lines = f.readlines()
+...
+>>> dir(f)
+['_CHUNK_SIZE', '__class__', '__del__', '__delattr__', '__dict__', '__dir__
+', '__doc__', '__enter__', '__eq__', '__exit__', '__format__', '__ge__', '_
+_getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init
+_subclass__', '__iter__', '__le__', '__lt__', '__ne__', '__new__', '__next_
+_', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__',
+ '__str__', '__subclasshook__', '_checkClosed', '_checkReadable', '_checkSe
+ekable', '_checkWritable', '_finalizing', 'buffer', 'close', 'closed', 'det
+ach', 'encoding', 'errors', 'fileno', 'flush', 'isatty', 'line_buffering',
+'mode', 'name', 'newlines', 'read', 'readable', 'readline', 'readlines', 'r
+econfigure', 'seek', 'seekable', 'tell', 'truncate', 'writable', 'write', '
+write_through', 'writelines']
+>>> help(f.closed)
+Help on bool object:
+
+class bool(int)
+ |  bool(x) -> bool
+ |
+ |  Returns True when the argument x is true, False otherwise.
+ |  The builtins True and False are the only two instances of the class boo
+l.
+ |  The class bool is a subclass of the class int, and cannot be subclassed
+.
+ |
+ |  Method resolution order:
+ |      bool
+ |      int
+ |      object
+ |
+ |  Methods defined here:
+ |
+ |  __and__(self, value, /)
+ |      Return self&value.
+ |
+ |  __or__(self, value, /)
+
+>>> f.closed
+True
+>>> f = open(filename, "rt")
+>>> f.closed
+False
+>>> f.close()
+>>> f.closed
+True
+>>> filename = r"D:\handson\data\iris.csv"
+>>> with open(filename, "rt") as f:
+...     lines = f.readlines()
+...     with open(filename+".bk", "wt") as f2:
+...             f2.writelines(lines)
+...
+>>>
+>>> import glob
+>>> glob.glob(r"D:\handson\data\iris.*")
+['D:\\handson\\data\\iris.csv', 'D:\\handson\\data\\iris.csv.bk']
+>>> import shutil
+>>> dir(shutil)
+['Error', 'ExecError', 'ReadError', 'RegistryError', 'SameFileError', 'Spec
+ialFileError', '_ARCHIVE_FORMATS', '_BZ2_SUPPORTED', '_LZMA_SUPPORTED', '_U
+NPACK_FORMATS', '_ZLIB_SUPPORTED', '__all__', '__builtins__', '__cached__',
+ '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__'
+, '_basename', '_check_unpack_options', '_copyxattr', '_destinsrc', '_ensur
+e_directory', '_find_unpack_format', '_get_gid', '_get_uid', '_make_tarball
+', '_make_zipfile', '_ntuple_diskusage', '_rmtree_safe_fd', '_rmtree_unsafe
+', '_samefile', '_unpack_tarfile', '_unpack_zipfile', '_use_fd_functions',
+'chown', 'collections', 'copy', 'copy2', 'copyfile', 'copyfileobj', 'copymo
+de', 'copystat', 'copytree', 'disk_usage', 'errno', 'fnmatch', 'get_archive
+_formats', 'get_terminal_size', 'get_unpack_formats', 'getgrnam', 'getpwnam
+', 'ignore_patterns', 'make_archive', 'move', 'nt', 'os', 'register_archive
+_format', 'register_unpack_format', 'rmtree', 'stat', 'sys', 'unpack_archiv
+e', 'unregister_archive_format', 'unregister_unpack_format', 'which']
+>>> type(lines)
+<class 'list'>
+>>> lines[0:5]
+['SepalLength,SepalWidth,PetalLength,PetalWidth,Name\n', '5.1,3.5,1.4,0.2,I
+ris-setosa\n', '4.9,3.0,1.4,0.2,Iris-setosa\n', '4.7,3.2,1.3,0.2,Iris-setos
+a\n', '4.6,3.1,1.5,0.2,Iris-setosa\n']
+>>> len(lines)
+151
+>>> # how many unique Names are there in iris.csv file?
+>>> rows = lines[1:]
+>>> rows[:5]
+['5.1,3.5,1.4,0.2,Iris-setosa\n', '4.9,3.0,1.4,0.2,Iris-setosa\n', '4.7,3.2
+,1.3,0.2,Iris-setosa\n', '4.6,3.1,1.5,0.2,Iris-setosa\n', '5.0,3.6,1.4,0.2,
+Iris-setosa\n']
+>>> e = '5.1,3.5,1.4,0.2,Iris-setosa\n'
+>>> e.strip().split(",")
+['5.1', '3.5', '1.4', '0.2', 'Iris-setosa']
+>>> e.strip().split(",")[-1]
+'Iris-setosa'
+>>> tmp1 = e.strip()
+>>> tmp1.split(',')
+['5.1', '3.5', '1.4', '0.2', 'Iris-setosa']
+>>> output = set()
+>>> for e in rows:
+...     output.add( e.strip().split(",")[-1] )
+...
+>>> output
+{'Iris-setosa', 'Iris-versicolor', 'Iris-virginica'}
+>>> # for each Name, what is the max of SepalLength?
+>>> tmp1 = e.strip()
+>>> tmp2 = tmp1.split(',')
+>>> tmp2
+['5.9', '3.0', '5.1', '1.8', 'Iris-virginica']
+>>> tmp2[-1]
+'Iris-virginica'
+>>> e.strip().split(',')[-1]
+'Iris-virginica'
+>>> quit()
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64
+ bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import math
+>>> dir(math)
+['__doc__', '__loader__', '__name__', '__package__', '__spec__', 'acos', 'a
+cosh', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'copysign', 'cos'
+, 'cosh', 'degrees', 'e', 'erf', 'erfc', 'exp', 'expm1', 'fabs', 'factorial
+', 'floor', 'fmod', 'frexp', 'fsum', 'gamma', 'gcd', 'hypot', 'inf', 'isclo
+se', 'isfinite', 'isinf', 'isnan', 'ldexp', 'lgamma', 'log', 'log10', 'log1
+p', 'log2', 'modf', 'nan', 'pi', 'pow', 'radians', 'remainder', 'sin', 'sin
+h', 'sqrt', 'tan', 'tanh', 'tau', 'trunc']
+>>> math.sqrt(2)
+1.4142135623730951
+>>> import time
+>>> dir(time)
+['_STRUCT_TM_ITEMS', '__doc__', '__loader__', '__name__', '__package__', '_
+_spec__', 'altzone', 'asctime', 'clock', 'ctime', 'daylight', 'get_clock_in
+fo', 'gmtime', 'localtime', 'mktime', 'monotonic', 'monotonic_ns', 'perf_co
+unter', 'perf_counter_ns', 'process_time', 'process_time_ns', 'sleep', 'str
+ftime', 'strptime', 'struct_time', 'thread_time', 'thread_time_ns', 'time',
+ 'time_ns', 'timezone', 'tzname']
+>>> time.sleep(1)
+>>> import datetime
+>>> dir(datetime)
+['MAXYEAR', 'MINYEAR', '__builtins__', '__cached__', '__doc__', '__file__',
+ '__loader__', '__name__', '__package__', '__spec__', 'date', 'datetime', '
+datetime_CAPI', 'sys', 'time', 'timedelta', 'timezone', 'tzinfo']
+>>> datetime.date.now()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: type object 'datetime.date' has no attribute 'now'
+>>> datetime.date.today()
+datetime.date(2020, 9, 16)
+>>> quit()
+
+D:\handson>python second.py ABC 40
+not known
+END
+
+D:\handson>python second.py ABC 40
+['second.py', 'ABC', '40']
+not known
+END
+
+D:\handson>python second.py ABC
+Traceback (most recent call last):
+  File "second.py", line 14, in <module>
+    age = int(sys.argv[2]) # 2nd Arg
+IndexError: list index out of range
+
+D:\handson>python second.py ABC
+['second.py', 'ABC']
+not known
+END
+
+D:\handson>python second.py ABC
+['second.py', 'ABC']
+not known
+END
+
+D:\handson>python second.py
+OK
+END
+
+D:\handson>python second.py ABC
+not known
+END
+
+D:\handson>python second.py ABC 30
+not known
+END
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64
+ bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pandas
+>>> filename = r"D:\handson\data\iris.csv"
+>>> df = pandas.read_csv(filename)
+>>> df.Name.unique()
+array(['Iris-setosa', 'Iris-versicolor', 'Iris-virginica'], dtype=object)
+>>> import pdb
+>>> quit()
+
+D:\handson>where python.exe
+c:\Python37\python.exe
+C:\Anaconda2\python.exe
+
+D:\handson>C:\Anaconda2\python.exe
+Python 2.7.14 |Anaconda, Inc.| (default, Oct 15 2017, 03:34:40) [MSC v.1500
+ 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> quit()
+
+D:\handson>echo > mex.py
+
+D:\handson>echo > mex_test.py
+
+D:\handson>python mex_test.py
+100
+
+D:\handson>python mex_test.py
+100
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64
+ bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import mex
+>>> mex.square(10)
+100
+>>> help(mex.square)
+Help on function square in module mex:
+
+square(x)
+    first function
+    returns square of number
+
+>>> dir(mex)
+['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name
+__', '__package__', '__spec__', 'square']
+>>> import mex
+>>> mex.square(10)
+100
+>>> import mex as m
+>>> m.square(10)
+100
+>>> from mex import square
+>>> square(10)
+100
+>>> from mex import *
+>>> square(10)
+100
+>>> import sys
+>>> sys.path
+['', 'c:\\python37\\python37.zip', 'c:\\python37\\DLLs', 'c:\\python37\\lib
+', 'c:\\python37', 'c:\\python37\\lib\\site-packages', 'c:\\python37\\lib\\
+site-packages\\win32', 'c:\\python37\\lib\\site-packages\\win32\\lib', 'c:\
+\python37\\lib\\site-packages\\Pythonwin']
+>>> #pydoc
+>>> quit()
+
+D:\handson>where pydoc.exe
+C:\Anaconda2\Scripts\pydoc.exe
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64
+ bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> def add(x,y):
+...     return x+y
+...
+>>> add(20,30)
+50
+>>> add(y=20, x=30)
+50
+>>> add(20, y=40)
+60
+>>> def add(x, y=20):
+...     return x+y
+...
+>>> add(20)
+40
+>>> add(20, 30)
+50
+>>> quit()
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64
+ bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> def p(x):
+...     print(x+y)
+...
+>>> p(20) #20, Error 20+y, 40 , x , x+y,
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 2, in p
+NameError: name 'y' is not defined
+>>> y = 100
+>>> p(20)  # 120,
+120
+>>> #LGB
+>>>
+>>> print(z)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'z' is not defined
+>>> quit()
+
+D:\handson>python
+Python 3.7.6 (tags/v3.7.6:43364a7ae0, Dec 19 2019, 00:42:30) [MSC v.1916 64
+ bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> x = 20
+>>> def p(y):
+...     x = y+20
+...
+>>> p(100) # what wud be the value of x? 120, 20
+>>> x
+20
+>>> #LGB is only for reading, not for writing
+>>> # for writing, it is always Local
+>>> def p(y):
+...     global x
+...     x = y+20
+...
+>>> p(100)
+>>> x
+120
+>>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

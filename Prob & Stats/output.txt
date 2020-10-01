@@ -1,0 +1,58 @@
+i am here 08
+probability to get Face=a, Type=heart, Colour=red is 1.91
+i am here 08
+probability to get Face=1, Type=heart, Colour=red is 0
+i am here 08
+probability to get Face=2, Type=heart, Colour=red is 1.9268
+i am here 08
+probability to get Face=3, Type=heart, Colour=red is 1.8997
+i am here 08
+probability to get Face=4, Type=heart, Colour=red is 1.949
+i am here 08
+probability to get Face=5, Type=heart, Colour=red is 1.9182000000000001
+i am here 08
+probability to get Face=6, Type=heart, Colour=red is 1.8975
+i am here 08
+probability to get Face=7, Type=heart, Colour=red is 1.9383000000000001
+i am here 08
+probability to get Face=8, Type=heart, Colour=red is 1.9146
+i am here 08
+probability to get Face=9, Type=heart, Colour=red is 1.9286999999999999
+i am here 08
+probability to get Face=10, Type=heart, Colour=red is 1.9414
+i am here 08
+probability to get Face=j, Type=heart, Colour=red is 1.9244
+i am here 08
+probability to get Face=q, Type=heart, Colour=red is 1.9339
+i am here 08
+probability to get Face=k, Type=heart, Colour=red is 1.8957000000000002
+i am here 08
+probability to get Face=a, Type=diamond, Colour=red is 1.9354
+i am here 08
+probability to get Face=1, Type=diamond, Colour=red is 0
+i am here 08
+probability to get Face=2, Type=diamond, Colour=red is 1.9256
+i am here 08
+probability to get Face=3, Type=diamond, Colour=red is 1.9189
+i am here 08
+probability to get Face=4, Type=diamond, Colour=red is 1.9271
+i am here 08
+probability to get Face=5, Type=diamond, Colour=red is 1.925
+i am here 08
+probability to get Face=6, Type=diamond, Colour=red is 1.9376999999999998
+i am here 08
+probability to get Face=7, Type=diamond, Colour=red is 1.9334
+i am here 08
+probability to get Face=8, Type=diamond, Colour=red is 1.9423
+i am here 08
+probability to get Face=9, Type=diamond, Colour=red is 1.932
+i am here 08
+probability to get Face=10, Type=diamond, Colour=red is 1.9002999999999999
+i am here 08
+probability to get Face=j, Type=diamond, Colour=red is 1.9224999999999999
+i am here 08
+probability to get Face=q, Type=diamond, Colour=red is 1.9456000000000002
+i am here 08
+probability to get Face=k, Type=diamond, Colour=red is 1.9194
+i am here 08
+probability to get Face=a, Type=spade, Colour=black is 1.918

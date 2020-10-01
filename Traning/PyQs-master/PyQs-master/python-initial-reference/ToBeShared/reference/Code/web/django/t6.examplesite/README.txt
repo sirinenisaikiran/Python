@@ -1,0 +1,4 @@
+'''
+Django AJAX                                   
+    csrf 
+'''

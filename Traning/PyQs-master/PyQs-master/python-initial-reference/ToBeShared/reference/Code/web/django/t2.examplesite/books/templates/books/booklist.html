@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Books at {{ now }}{% endblock %}
+
+{% block content %}
+    <ul>
+    {% for book in object_list %}
+        <li>{{ book.pub_date|date }} - {{ book.name }}</li>
+    {% empty %}
+        <li>No articles yet.</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
+
